@@ -1,0 +1,53 @@
+download cmr os from github(github.com/rampriyakilari) and then extract it
+open vmware workstation and open cmr os,download and extract
+ater opening cmr os ,it asks for name ,give the name which you want.ex-67d5 then import which automatically launches OS
+click on power on this virtual machine ,ie,power on cmr os
+After opening os virtual machine, it displays ip address (copy ip address)
+copy ip address and click on any key
+Now go to nmap zenmap tool,type target as ip address and select( intense scan,all tcp ports) and click on scan
+Now copy the command shown after enetering the ip address in nmap-zenmap tool and paste in kali (if you want to see the open ports in kali as we did in previous steps)
+Now open browser in kali and search for cmr os ip then APAGE2 DEFAULT PAGE appears.
+Now right click on default page,click on view page source then go to line number 278 and 279.There we can see the username and password ie, both are test
+------------------------------------------------------------------------------------------------------------
+Now go back to cmros ,and it asks for username and password like VULNOS LOGIN AND PASSWORD:test
+now in cmros type ls ,we see documents/downloads and some more files.follow the above steps:-
+cd Desktop
+ls
+cap.pcapng s3cr3t.txt
+cat s3cr3t.txt
+it will be displayed like "can't open 's3cr3t.txt' :permission denied
+----------------------------------------------------------------------------------------
+NOW WE ARE GOING TO CHECK THE SAME PROCESS IN KALI
+ssh test @<cmrosip> -p 13652
+type 'yes'
+it asks for password:test
+ls
+cd desktop
+ls
+cap.pcapng s3cr3t.txt
+cat s3cr3t.txt
+it will be displayed like "can't open 's3cr3t.txt' :permission denied
+----------------------------------------------------------------------------------------------
+Now go back to window system and download WINSCP and click on WINSCP and select new site and select file protocol as SCP
+Enter necessary details asked
+FILE PROTOCOL:SCP
+HOST NAME:CMR OS IP
+PORT NO:13652
+USERNAME:test
+PASSWORD:test
+click on login
+Now copy the cap.pcanpng from cmros into desktop
+copy it into the filesystem named kali 
+Now goto desktop and click on cap.pcapng ,right click and select open with wire shark
+Click on any tcp protocol and right click on follow then tcp stream 
+now note down user and passsword
+Again go back to CMROS that is in kali,enter the username and password shown wireshark
+cd ..
+ls
+cd home
+ls
+test
+cd test
+ls
+cd desktop
+cat s3cr3t.txt
